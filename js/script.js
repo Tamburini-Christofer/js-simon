@@ -41,7 +41,7 @@ function arrayNumeri (numeroMinimo, numeroMassimo, numeroMoltiplicazioni) {
     }
     return array;
 }
-
+let conto = 5;
 //Creiamo una funzione timer
 function decrementa() {
 //Decrementiamo e scriviamo il numero 
@@ -84,9 +84,9 @@ inputForm.addEventListener("submit", (e) => {
         let valore = parseInt(input.value);
         if (numeriGenerati.includes(valore)) {
             numeriIndovinati++;
-            numeri.push([i])
+            numeri.push([valore])
         }
     });
 //Mando in console il risultato 
-    paragrafo.innerText = `Hai indovinato ${numeriIndovinati} numeri su ${numeriGenerati.length}. I numeri indovinati sono ${numeri}`;
+    paragrafo.innerText = `Hai indovinato ${numeriIndovinati} numeri su ${numeriGenerati.length}. I numeri indovinati sono (${numeri})`;
 });

@@ -41,7 +41,7 @@ function arrayNumeri (numeroMinimo, numeroMassimo, numeroMoltiplicazioni) {
     }
     return array;
 }
-let conto = 5;
+let conto = 30;
 //Creiamo una funzione timer
 function decrementa() {
 //Decrementiamo e scriviamo il numero 

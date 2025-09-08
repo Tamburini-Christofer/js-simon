@@ -51,12 +51,11 @@ function decrementa() {
         }
 }
 
-
 //Lanciamo la funzione intervallo
  setInterval(decrementa, 1000);
 
 //Generiamo i numeri nel file DOM
 for (let i = 0; i < numeriRandom.length; i++) {
     let numeroRandomLi = numeriRandom[i];
-    numeroRandomLi.innerText = arrayNumeri (1, 50, 5)
+    numeroRandomLi.innerText = arrayNumeri (1, 50, 1)
 }

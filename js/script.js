@@ -1,16 +1,23 @@
 //Prendiamo gli input dell'utente
+//Qui prendiamo tutti gli Input utente
 let inputUtente = document.querySelectorAll("input")
+//Qui prendiamo il form
 let inputForm = document.getElementById ("answers-form")
+//Qui prendiamo il bottone
 let buttonSubmit = document.getElementById ("btn")
+//Qui prendiamo il paragfrafo
 let paragrafo = document.getElementById ("message")
-
 //Prendiamo il collegamento per inserire i numero random
 let numeriRandom = document.querySelectorAll("li")
-
+/************************************************************************************************ */
+//Output
 //Prendiamo il timer dall'Id countdown
 let contoRovesciaOutput = document.getElementById("countdown")
+//Prendiamo le istruzioni da rimuovere
 const istruzioni = document.getElementById ("instructions")
 
+/************************************************************************************************/
+//Funzioni
 //Creiamo una funzione che possa calcolare un numero tra due valori
 function generatoreNumeriRandom (minimo, massimo) {
 //Ritorniamo alla funzione stessa la randomizzazione
@@ -35,9 +42,7 @@ function arrayNumeri (numeroMinimo, numeroMassimo, numeroMoltiplicazioni) {
     return array;
 }
 
-//Creiamo una variabile timer
-let conto = 5;
-//Creiamo un timer
+//Creiamo una funzione timer
 function decrementa() {
 //Decrementiamo e scriviamo il numero 
         contoRovesciaOutput.innerText = conto;
@@ -50,14 +55,15 @@ function decrementa() {
         istruzioni.style.display = "none";
 //E anche tutti i tag list
         numeriRandom.forEach(li => li.style.display = "none")
-//Prima rimuoviamo la classe di Bootstrap, poi facciamo apparire il form compelto
+//Prima rimuoviamo la classe di Bootstrap, poi facciamo apparire il form completo
         inputForm.classList.remove("d-none");
         inputForm.style.display = "block";
 }}
 
+/**********************************************************************************************/
 //Lanciamo la funzione intervallo
  setInterval(decrementa, 1000);
-  let numeriGenerati = []
+  let numeriGenerati = [];
 
 //Generiamo i numeri nel file DOM
 for (let i = 0; i < numeriRandom.length; i++) {
@@ -66,17 +72,21 @@ for (let i = 0; i < numeriRandom.length; i++) {
     numeriRandom[i].innerText = numero;
 }
 
+//Submitto il form
 inputForm.addEventListener("submit", (e) => {
+//Prevengo l'invio del Form 
     e.preventDefault();
-
+//Creo due variabili
     let numeriIndovinati = 0;
-
-    // Cicliamo sugli input e controlliamo se il numero è tra quelli generati
+    let numeri = [];
+// Cicliamo sugli input e controlliamo se il numero è tra quelli generati
     inputUtente.forEach(input => {
         let valore = parseInt(input.value);
         if (numeriGenerati.includes(valore)) {
             numeriIndovinati++;
+            numeri.push([i])
         }
     });
-    paragrafo.innerText = `Hai indovinato ${numeriIndovinati} numeri su ${numeriGenerati.length}`;
+//Mando in console il risultato 
+    paragrafo.innerText = `Hai indovinato ${numeriIndovinati} numeri su ${numeriGenerati.length}. I numeri indovinati sono ${numeri}`;
 });
